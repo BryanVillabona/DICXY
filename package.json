@@ -1,0 +1,26 @@
+{
+  "name": "dicxy",
+  "version": "1.0.0",
+  "description": "Diccionario y traductor en una misma app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryanVillabona/DICXY.git"
+  },
+  "keywords": [
+    "diccionario",
+    "traductor",
+    "definiciones",
+    "palabra"
+  ],
+  "author": "Juan Sebastian Gomez, Sergio Steven Lievano, Bryan Villabona",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BryanVillabona/DICXY/issues"
+  },
+  "homepage": "https://github.com/BryanVillabona/DICXY#readme"
+}
