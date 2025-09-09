@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const boxen = require('boxen');
 
 const buscarDefinicion = require('./functions/buscardefinicion');
+const traducir = require('./functions/translate');
 
 function mostrarBienvenida() {
     const bienvenida = chalk.bold.green('Bienvenido a DICXY - Diccionario/traductor en una sola app');
@@ -36,7 +37,7 @@ async function menuPrincipal() {
             await buscarDefinicion();
             break;
         case 'Traducir texto':
-            console.log(chalk.yellow('Aquí va la traducción...'));
+            await traducir();
             break;
         case 'Definición + Traducción':
             console.log(chalk.yellow('Aquí va la definición con traducción...'));
