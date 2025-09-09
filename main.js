@@ -2,6 +2,8 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const boxen = require('boxen');
 
+const buscarDefinicion = require('./functions/buscardefinicion');
+
 function mostrarBienvenida() {
     const bienvenida = chalk.bold.green('Bienvenido a DICXY - Diccionario/traductor en una sola app');
     console.log(
@@ -28,7 +30,21 @@ async function menuPrincipal() {
             ]
         }
     ]);
-    console.log(opciones);
+
+    switch (opciones.accion) {
+        case 'Buscar definición':
+            await buscarDefinicion();
+            break;
+        case 'Traducir texto':
+            console.log(chalk.yellow('Aquí va la traducción...'));
+            break;
+        case 'Definición + Traducción':
+            console.log(chalk.yellow('Aquí va la definición con traducción...'));
+            break;
+        case 'Salir':
+            console.log(chalk.blue('¡Hasta pronto!'));
+            process.exit(0);
+    }
 }
 
 async function main() {
@@ -37,4 +53,5 @@ async function main() {
 }
 
 main();
+
 
