@@ -4,7 +4,7 @@ const boxen = require('boxen');
 
 const buscarDefinicion = require('./functions/buscardefinicion');
 const traducir = require('./functions/translate');
-const definicionTraduccion = require('./functions/definicionTraduccion.js');
+const definicionTraduccion = require('./functions/definicionTraduccion');
 
 function mostrarBienvenida() {
     const bienvenida = chalk.bold.green('Bienvenido a DICXY - Diccionario/traductor en una sola app');
@@ -18,34 +18,52 @@ function mostrarBienvenida() {
     );
 }
 
-async function menuPrincipal() {
-    const opciones = await inquirer.prompt([
+async function pausar() {
+    await inquirer.prompt([
         {
-            type: 'list',
-            name: 'accion',
-            message: '¿Qué deseas hacer?',
-            choices: [
-                'Buscar definición',
-                'Traducir texto',
-                'Definición + Traducción',
-                'Salir'
-            ]
+            type: 'input',
+            name: 'continuar',
+            message: 'Presiona ENTER para volver al menú...'
         }
     ]);
+}
 
-    switch (opciones.accion) {
-        case 'Buscar definición':
-            await buscarDefinicion();
-            break;
-        case 'Traducir texto':
-            await traducir();
-            break;
-        case 'Definición + Traducción':
-            await definicionTraduccion();
-            break;
-        case 'Salir':
-            console.log(chalk.blue('¡Hasta pronto!'));
-            process.exit(0);
+async function menuPrincipal() {
+    let salir = false;
+
+    while (!salir) {
+        const opciones = await inquirer.prompt([
+            {
+                type: 'list',
+                name: 'accion',
+                message: '¿Qué deseas hacer?',
+                choices: [
+                    'Buscar definición',
+                    'Traducir texto',
+                    'Definición + Traducción',
+                    'Salir'
+                ]
+            }
+        ]);
+
+        switch (opciones.accion) {
+            case 'Buscar definición':
+                await buscarDefinicion();
+                await pausar();
+                break;
+            case 'Traducir texto':
+                await traducir();
+                await pausar();
+                break;
+            case 'Definición + Traducción':
+                await definicionTraduccion();
+                await pausar();
+                break;
+            case 'Salir':
+                console.log(chalk.blue('¡Hasta pronto! 👋'));
+                salir = true;
+                break;
+        }
     }
 }
 
@@ -55,6 +73,7 @@ async function main() {
 }
 
 main();
+
 
 
 

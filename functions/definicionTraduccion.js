@@ -10,35 +10,36 @@ translate.engine = 'google';
 translate.key = null;
 
 async function definicionTraduccion() {
-    const { palabra } = await inquirer.prompt([
-        {
-            type: 'input',
-            name: 'palabra',
-            message: 'Escribe la palabra que quieres definir (en inglés):'
-        }
-    ]);
+    try {
+        const { palabra } = await inquirer.prompt([
+            {
+                type: 'input',
+                name: 'palabra',
+                message: 'Escribe la palabra que quieres definir (en inglés):'
+            }
+        ]);
 
-    wordnet.lookup(palabra, async (results) => {
-        if (!results || results.length === 0) {
-            console.log(chalk.red(`No se encontró definición para "${palabra}"`));
-            return;
-        }
-
-        const opciones = results.map((r, i) => ({
-            name: `${i + 1}. (${r.pos}) ${r.def}`,
-            value: i
-        }));
+        const definiciones = await new Promise((resolve, reject) => {
+            wordnet.lookup(palabra, (results) => {
+                if (results.length === 0) {
+                    reject(new Error('No se encontraron definiciones.'));
+                } else {
+                    resolve(results);
+                }
+            });
+        });
 
         const { seleccion } = await inquirer.prompt([
             {
                 type: 'list',
                 name: 'seleccion',
-                message: `Se encontraron ${results.length} definiciones. Escoge una:`,
-                choices: opciones
+                message: `Se encontraron ${definiciones.length} definiciones. Escoge una:`,
+                choices: definiciones.map((def, i) => ({
+                    name: `${i + 1}. (${def.pos}) ${def.gloss}`,
+                    value: def
+                }))
             }
         ]);
-
-        const def = results[seleccion];
 
         const { idioma } = await inquirer.prompt([
             {
@@ -55,28 +56,27 @@ async function definicionTraduccion() {
             }
         ]);
 
-        try {
-            const traduccion = await translate(def.def, { from: 'en', to: idioma });
+        const traduccion = await translate(seleccion.gloss, { from: 'en', to: idioma });
 
-            const salida = `
-📌 Palabra: ${chalk.bold(palabra)}
-📖 Tipo: ${chalk.cyan(def.pos)}
-📝 Definición: ${chalk.green(def.def)}
-➡️ Traducción (${chalk.cyan(idioma)}): ${chalk.yellow(traduccion)}
-            `;
+        const salida = `
+📖 Palabra: ${chalk.bold(palabra)}
+🔎 Definición: ${chalk.yellow(seleccion.gloss)}
+➡️  Traducción (${chalk.cyan(idioma)}): ${chalk.green(traduccion)}
+        `;
 
-            console.log(
-                boxen(salida, {
-                    padding: 1,
-                    borderColor: 'magenta',
-                    margin: 1,
-                    title: 'Definición + Traducción'
-                })
-            );
-        } catch (error) {
-            console.log(chalk.red('Error al traducir la definición: ' + error.message));
-        }
-    });
+        console.log(
+            boxen(salida, {
+                padding: 1,
+                borderColor: 'magenta',
+                margin: 1,
+                title: 'Definición + Traducción'
+            })
+        );
+
+    } catch (error) {
+        console.log(chalk.red('Error: ' + error.message));
+    }
 }
 
 module.exports = definicionTraduccion;
+
