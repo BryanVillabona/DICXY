@@ -16,7 +16,7 @@ async function buscarDefinicion() {
 
     wordnet.lookup(palabra, async (results) => {
         if (!results || results.length === 0) {
-            console.log(chalk.red(`❌ No se encontró definición para "${palabra}"`));
+            console.log(chalk.red(`No se encontró definición para "${palabra}"`));
             return;
         }
 

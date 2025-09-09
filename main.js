@@ -4,6 +4,7 @@ const boxen = require('boxen');
 
 const buscarDefinicion = require('./functions/buscardefinicion');
 const traducir = require('./functions/translate');
+const definicionTraduccion = require('./functions/definicionTraduccion.js');
 
 function mostrarBienvenida() {
     const bienvenida = chalk.bold.green('Bienvenido a DICXY - Diccionario/traductor en una sola app');
@@ -40,7 +41,7 @@ async function menuPrincipal() {
             await traducir();
             break;
         case 'Definición + Traducción':
-            console.log(chalk.yellow('Aquí va la definición con traducción...'));
+            await definicionTraduccion();
             break;
         case 'Salir':
             console.log(chalk.blue('¡Hasta pronto!'));
@@ -54,5 +55,6 @@ async function main() {
 }
 
 main();
+
 
 
