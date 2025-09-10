@@ -34,14 +34,16 @@ async function buscarDefinicion() {
             }
         ]);
 
+        // Resultados tras haber obtenido su selecciòn contextual gramatical 
         const def = results[seleccion];
 
+        // se renderiza "def" como los resultados de la busqueda
         const salida = `
-Palabra: ${chalk.bold(palabra)}
-Tipo: ${chalk.cyan(def.pos)}
-Definición: ${chalk.green(def.def)}
-Ejemplo: ${chalk.yellow(def.expamples?.join('; ') || 'No disponible')}
-        `;
+            Palabra: ${chalk.bold(palabra)}
+T           ipo: ${chalk.cyan(def.pos)}
+            Definición: ${chalk.green(def.def)}
+            Ejemplo: ${chalk.yellow(def.expamples?.join('; ') || 'No disponible')}
+            `;
 
         console.log(
             boxen(salida, {

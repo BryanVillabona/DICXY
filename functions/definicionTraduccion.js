@@ -1,16 +1,32 @@
+// se importa la libreria "inquirer"
 const inquirer = require('inquirer');
+
+// Se importa la libreria "chalk"
 const chalk = require('chalk');
+
+// Se importa la libreria "boxen"
 const boxen = require('boxen');
+
+// Se importa la libreria "natural"
 const natural = require('natural');
+
+// Se importa la libreria "translate"
 const { default: translate } = require('translate');
 
+// Se importa la libreria "WordNet"
 const wordnet = new natural.WordNet();
 
+// Motor en el que se desarrolla la busqueda del termino
 translate.engine = 'google';
 translate.key = null;
 
+// Funcion para realizar la traduccion
 async function definicionTraduccion() {
+    
+    // bloque "try" 
     try {
+
+        //
         const { palabra } = await inquirer.prompt([
             {
                 type: 'input',
