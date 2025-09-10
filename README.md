@@ -67,7 +67,7 @@ Es fundamental en secciones como el menú, la elección de idioma o la selecció
 
 #### natural y wornet-db 🆎
 
-![inquirer_image](./Readme_images/inquirer_image.png)
+![inquirer_image](./Readme_images/wornet_image.png)
 
 `natural` es una librería de procesamiento de lenguaje natural para Node.js que permite, entre muchas otras funciones, buscar definiciones y sinónimos a través de la integración con WordNet. Por su parte, `wordnet-db` proporciona los archivos de base de datos de WordNet necesarios para alimentar esa integración. Juntas, permiten consultar fácilmente el diccionario léxico de WordNet desde tu aplicación."
 
@@ -90,3 +90,35 @@ La librería `translate` es una herramienta versátil para Node.js y el navegado
 **¿Por qué se utiliza?**
 
 Se utiliza para traducir el texto ingresado por el usuario al idioma deseado.
+
+## Instrucciones de instalación
+
+A continuación, se detallan los pasos para descargar, instalar y utilizar el programa **DICXY**.
+
+**1. Ir al repositorio oficial de DICXY**
+
+![install_1](./Readme_images/install_1.png)
+
+- Para obetener los archivos rapidamente se puede optar por dar click en `Download ZIP`
+
+- Despues de haber realizado la descarga del .ZIP se debe abrir el administrador de archivos para descomprimir el archivo.
+
+![install_2](./Readme_images/install_2.png)
+
+**2. Descomprimir el archivo .ZIP**
+
+![install_4](./Readme_images/install_4.png)
+
+- Al descomprimirlo se obtiene una carpeta como esta:
+
+![install_5](./Readme_images/install_5.png)
+
+**3. Ejecutar comandos**
+
+- Se ejecuta el comando `npm i` para cargar los archivos necesarios para el funcionamiento de DICXY
+
+![install_6](./Readme_images/install%20_6.png)
+
+- Luego se ejecuta `node main.js` para iniciar el programa
+
+![install_7](./Readme_images/install_7.png)
