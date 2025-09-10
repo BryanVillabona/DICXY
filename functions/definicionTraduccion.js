@@ -26,17 +26,21 @@ async function definicionTraduccion() {
     // bloque "try" 
     try {
 
-        //
+        // Se captura la palabra del usuario
         const { palabra } = await inquirer.prompt([
             {
+                // Entrada
                 type: 'input',
                 name: 'palabra',
                 message: 'Escribe la palabra que quieres definir (en inglés):'
             }
         ]);
 
+        // Se consultan los resultados
         const definiciones = await new Promise((resolve, reject) => {
             wordnet.lookup(palabra, (results) => {
+
+                // Si no hay resultados
                 if (results.length === 0) {
                     reject(new Error('No se encontraron definiciones.'));
                 } else {
@@ -45,6 +49,7 @@ async function definicionTraduccion() {
             });
         });
 
+        // Se crea un prompt para elegir la definicion
         const { seleccion } = await inquirer.prompt([
             {
                 type: 'list',
@@ -57,11 +62,13 @@ async function definicionTraduccion() {
             }
         ]);
 
+        // Se crea un prompt para elegir el idioma de destino
         const { idioma } = await inquirer.prompt([
             {
                 type: 'list',
                 name: 'idioma',
                 message: 'Selecciona el idioma de destino:',
+                // Lenguajes
                 choices: [
                     { name: 'Español (es)', value: 'es' },
                     { name: 'Francés (fr)', value: 'fr' },
@@ -74,10 +81,11 @@ async function definicionTraduccion() {
 
         const traduccion = await translate(seleccion.gloss, { from: 'en', to: idioma });
 
+        // Se renderiza la salida por consola
         const salida = `
-📖 Palabra: ${chalk.bold(palabra)}
-🔎 Definición: ${chalk.yellow(seleccion.gloss)}
-➡️  Traducción (${chalk.cyan(idioma)}): ${chalk.green(traduccion)}
+        📖 Palabra: ${chalk.bold(palabra)}
+        🔎 Definición: ${chalk.yellow(seleccion.gloss)}
+        ➡️  Traducción (${chalk.cyan(idioma)}): ${chalk.green(traduccion)}
         `;
 
         console.log(
@@ -89,7 +97,10 @@ async function definicionTraduccion() {
             })
         );
 
-    } catch (error) {
+    } 
+    
+    // En caso de error
+    catch (error) {
         console.log(chalk.red('Error: ' + error.message));
     }
 }
