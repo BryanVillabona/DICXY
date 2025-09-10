@@ -2,7 +2,9 @@
 
 **El superdiccionario en consola**
 
-![imagen_DICVY](./Readme_images/console-dictionary_logo.png)
+<p align="center">
+<img src="./Readme_images/console-dictionary_logo.png" width="300"/>
+</p>
 
 <hr>
 
@@ -29,7 +31,9 @@ A continuación, se describen las principales librerías que hicieron posible la
 
 #### Boxen 🧰
 
-![boxen_image](./Readme_images/boxen_image.png)
+<p align="center">
+<img src="./Readme_images/boxen_image.png" width="300"/>
+</p>
 
 `boxen` es un paquete para Node.js que permite crear cajas de texto estilizadas en la terminal, facilitando la presentación visual de mensajes dentro de un entorno de consola. Es una herramienta práctica y versátil para mejorar la experiencia visual de las aplicaciones terminales en JavaScript, con gran flexibilidad y sencillez de uso.
 
@@ -41,7 +45,9 @@ El uso de la librería boxen se limita a fines estéticos, ya que su función pr
 
 #### Chalk 🖌️
 
-![chalk_image](./Readme_images/chalk_image.png)
+<p align="center">
+<img src="./Readme_images/chalk_image.png" width="300"/>
+</p>
 
 `chalk` es una librería de Node.js que permite aplicar colores y estilos al texto en la terminal, facilitando la creación de salidas más legibles y atractivas en aplicaciones de consola. Soporta colores básicos, 256-colores y Truecolor, además de formatos como negrita, subrayado o fondos personalizados.
 
@@ -55,9 +61,11 @@ Su uso tiene un fin principalmente estético: ofrecer una experiencia más agrad
 
 #### Inquirer 📲
 
-![inquirer_image](./Readme_images/inquirer_image.png)
+<p align="center">
+<img src="./Readme_images/inquirer_image.png" width="100"/>
+</p>
 
-`Inquierer` es una poderosa librería de Node.js que facilita la creación de interfaces interactivas en la terminal. Permite realizar fácilmente preguntas al usuario con distintos formatos de entrada —como selección de lista, confirmaciones, texto libre, entre otros—, e incluye funcionalidades útiles como validación de respuestas, manejo de errores y flujos de preguntas jerárquicas.
+`Inquirer` es una poderosa librería de Node.js que facilita la creación de interfaces interactivas en la terminal. Permite realizar fácilmente preguntas al usuario con distintos formatos de entrada —como selección de lista, confirmaciones, texto libre, entre otros—, e incluye funcionalidades útiles como validación de respuestas, manejo de errores y flujos de preguntas jerárquicas.
 
 **¿Por qué se utiliza?**
 
@@ -67,7 +75,9 @@ Es fundamental en secciones como el menú, la elección de idioma o la selecció
 
 #### natural y wornet-db 🆎
 
-![inquirer_image](./Readme_images/wornet_image.png)
+<p align="center">
+<img src="./Readme_images/wornet_image.png" width="300"/>
+</p>
 
 `natural` es una librería de procesamiento de lenguaje natural para Node.js que permite, entre muchas otras funciones, buscar definiciones y sinónimos a través de la integración con WordNet. Por su parte, `wordnet-db` proporciona los archivos de base de datos de WordNet necesarios para alimentar esa integración. Juntas, permiten consultar fácilmente el diccionario léxico de WordNet desde tu aplicación."
 
@@ -83,7 +93,9 @@ La librería natural incluye la lógica para trabajar con WordNet (consultar def
 
 #### translate 🈳
 
-![translate_image](./Readme_images/translate_image.png)
+<p align="center">
+<img src="./Readme_images/translate_image.png" width="200"/>
+</p>
 
 La librería `translate` es una herramienta versátil para Node.js y el navegador que permite convertir texto entre diferentes idiomas de manera sencilla.
 
@@ -97,28 +109,40 @@ A continuación, se detallan los pasos para descargar, instalar y utilizar el pr
 
 **1. Ir al repositorio oficial de DICXY**
 
+<p align="center">
 ![install_1](./Readme_images/install_1.png)
+</p>
 
 - Para obetener los archivos rapidamente se puede optar por dar click en `Download ZIP`
 
 - Despues de haber realizado la descarga del .ZIP se debe abrir el administrador de archivos para descomprimir el archivo.
 
-![install_2](./Readme_images/install_2.png)
+<p align="center">
+<img src="./Readme_images/install_2.png" width="300"/>
+</p>
 
 **2. Descomprimir el archivo .ZIP**
 
-![install_4](./Readme_images/install_4.png)
+<p align="center">
+<img src="./Readme_images/install_4.png" width="300"/>
+</p>
 
 - Al descomprimirlo se obtiene una carpeta como esta:
 
-![install_5](./Readme_images/install_5.png)
+<p align="center">
+  <img src="./Readme_images/install_5.png" width="100"/>
+</p>
 
 **3. Ejecutar comandos**
 
 - Se ejecuta el comando `npm i` para cargar los archivos necesarios para el funcionamiento de DICXY
 
-![install_6](./Readme_images/install%20_6.png)
+<p align="center">
+<img src="./Readme_images/install _6.png"/>
+</p>
 
 - Luego se ejecuta `node main.js` para iniciar el programa
 
-![install_7](./Readme_images/install_7.png)
+<p align= "center">
+<img src="./Readme_images/install_7.png"/>
+</p>
