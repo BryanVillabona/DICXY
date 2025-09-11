@@ -22,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/BryanVillabona/DICXY/issues"
   },
-  "homepage": "https://github.com/BryanVillabona/DICXY#readme"
+  "homepage": "https://github.com/BryanVillabona/DICXY#readme",
+  "dependencies": {
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.7",
+    "natural": "^8.1.0",
+    "translate": "^3.0.1",
+    "wordnet-db": "^3.1.14"
+  }
 }
