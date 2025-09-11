@@ -41,6 +41,25 @@ A continuación, se describen las principales librerías que hicieron posible la
 
 El uso de la librería boxen se limita a fines estéticos, ya que su función principal es mejorar la presentación visual en la consola. Esta librería no interviene ni afecta el comportamiento de las funcionalidades clave del aplicativo, como se mencionó anteriormente.
 
+**Ejemplo de uso**
+
+```jsx
+// Se crea la función para mostrar el menú
+function mostrarBienvenida() {
+
+    // Presentación
+    const bienvenida = chalk.bold.green('Bienvenido a DICXY - Diccionario/traductor en una sola app');
+    console.log(
+        boxen(bienvenida, {
+            padding: 1,
+            margin: 1,
+            borderStyle: 'double',
+            borderColor: 'red'
+        })
+    );
+}
+```
+
 <hr>
 
 #### Chalk 🖌️
@@ -54,6 +73,17 @@ El uso de la librería boxen se limita a fines estéticos, ya que su función pr
 **¿Por qué se utiliza?**
 
 Su uso tiene un fin principalmente estético: ofrecer una experiencia más agradable al usuario mediante colores y estilos visuales en la consola, evitando así la apariencia monótona y tradicional de las interfaces de línea de comandos.
+
+**Ejemplo de uso**
+
+```jsx
+const salida = `
+            Palabra: ${chalk.bold(palabra)}
+            Tipo: ${chalk.cyan(def.pos)}
+            Definición: ${chalk.green(def.def)}
+            Ejemplo: ${chalk.yellow(def.expamples?.join('; ') || 'No disponible')}
+            `;
+```
 
 <hr>
 
@@ -70,6 +100,28 @@ Su uso tiene un fin principalmente estético: ofrecer una experiencia más agrad
 **¿Por qué se utiliza?**
 
 Es fundamental en secciones como el menú, la elección de idioma o la selección de clases gramaticales. Actúa como el principal intermediario para recopilar las opciones elegidas por el usuario, las cuales posteriormente son procesadas para sus respectivos usos.
+
+**Ejemplo de uso**
+
+```jsx
+// Se crea un prompt
+        const opciones = await inquirer.prompt([
+            {
+                // lista de opciones
+                type: 'list',
+                name: 'accion',
+                message: '¿Qué deseas hacer?',
+
+                // opciones a elegir
+                choices: [
+                    'Buscar definición',
+                    'Traducir texto',
+                    'Definición + Traducción',
+                    'Salir'
+                ]
+            }
+        ]);
+```
 
 <hr>
 
@@ -102,6 +154,12 @@ La librería `translate` es una herramienta versátil para Node.js y el navegado
 **¿Por qué se utiliza?**
 
 Se utiliza para traducir el texto ingresado por el usuario al idioma deseado.
+
+**Ejemplo de uso**
+
+```jsx
+const traduccion = await translate(texto, { from: origen, to: idioma });
+```
 
 ## Instrucciones de instalación
 
@@ -146,3 +204,21 @@ A continuación, se detallan los pasos para descargar, instalar y utilizar el pr
 <p align= "center">
 <img src="./Readme_images/install_7.png"/>
 </p>
+
+## Video explicativo 📹
+
+[🔗 Ver video explicativo en Google Drive](https://drive.google.com/file/d/1u3lYNWDw4ssZ13_oJyrKVzYSHfePAbH0/view?usp=sharing)
+
+## Tareas establecidas 📢
+
+[🔗 Ver tareas y seguimiento del proyecto en ClickUp](https://sharing.clickup.com/90132416818/b/h/4-901310315861-2/c0f7e366602bf8c)
+
+https://app.clickup.com/90132416818/v/x/2ky4z29j-433
+
+## Autores 🧑‍💼
+
+- **Joan Sebastián Gómez Serrano**
+
+- **Sergio Steven Lievano Amaya**
+
+- **Brayan Villabona**
